@@ -1,3 +1,4 @@
+cd $(dirname $0)
 echo "Pairing..."
 expect pair_bluetooth_device.expect > expect_script.log
 
