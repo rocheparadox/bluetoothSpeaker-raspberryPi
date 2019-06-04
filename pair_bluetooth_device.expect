@@ -2,7 +2,7 @@ set timeout 30
 spawn bluetoothctl
 expect "# "
 send "agent off\r"
-expect "Agent unregistered"
+expect "?registered"
 send "\r"
 
 expect "# "
