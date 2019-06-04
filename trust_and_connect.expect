@@ -1,0 +1,27 @@
+set timeout 30
+spawn bluetoothctl
+expect "# "
+send "agent off\r"
+expect "Agent unregistered"
+send "\r"
+
+expect "# "
+send "agent NoInputNoOutput\r"
+expect "Agent registered"
+send "\r"
+
+expect "# "
+send "default-agent\r"
+expect "Default agent request successful"
+send "\r"
+
+expect "# "
+send "trust [lindex $argv 0]\r"
+
+expect "Changing" 
+send "connect [lindex $argv 0]\r"
+
+expect "Connection successful"
+send "exit\r"
+
+
